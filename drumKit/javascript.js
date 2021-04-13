@@ -1,31 +1,32 @@
-
-
-const displayDetails = (event) =>{
+const displayInfo= (event =>{
     console.log(event.keyCode);
-}
-
-const audioCheck = (event) => {
-    const audio = document.querySelector(`audio[data-key='${event.keyCode}']`);
-    const key = document.querySelector(`.key[data-key='${event.keyCode}']`)
-    // console.log(audio);
-    if(!audio) return;  //stop from running all together
-    audio.currentTime=0 // to set the audio from 0 everytime
-    audio.play();
-    // console.log(key);
-    key.classList.add('playing')  //add the transform class
-}
-
-
-function removeGlow(event){
-    if(event.propertyName != 'transform') return;
-    console.log(event.propertyName);
-    this.classList.remove('playing');
-}
-
-const key = document.querySelectorAll('.key');
-
-key.forEach( key => {
-    key.addEventListener('transitionend',removeGlow);
 })
-console.log(key);
-window.addEventListener('keydown',audioCheck);
+
+const addAudio = (event) =>{
+    const audio = document.querySelector(`audio[data-key="${event.keyCode}"]`);
+    const key = document.querySelector(`.key[data-key="${event.keyCode}"]`);
+    
+    if(!audio) return;
+    audio.currentTime=0;
+    audio.play();
+    key.classList.add('playing');
+    
+}
+
+const removeEffect = (event)=>{
+    if(event.propertyName != 'transform') return;
+
+    // console.log(event.propertyName);
+     this.classList.remove('playing');
+}
+
+const keys = document.querySelectorAll('.key');
+
+keys.forEach( (key) => {
+    key.addEventListener('transitionend',function(event){
+        if(event.propertyName != 'transform') return;
+        key.classList.remove('playing');
+    });
+})
+
+window.addEventListener('keydown', addAudio);
