@@ -1,4 +1,4 @@
-const displayInfo= (event =>{
+const displayInfo = (event =>{
     console.log(event.keyCode);
 })
 
@@ -33,7 +33,7 @@ window.addEventListener('keydown', addAudio);
 //mouse click event
 function mouseClick(event){
     // console.log(event);
-    // console.log(key.dataset.key);
+    console.log(this);
     const audio = document.querySelector(`audio[data-key='${this.dataset.key}']`);  //use key.dataset.item to get the data-set value
     // console.log(audio);
     audio.currentTime=0;
