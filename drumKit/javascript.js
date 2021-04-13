@@ -33,7 +33,7 @@ window.addEventListener('keydown', addAudio);
 //mouse click event
 function mouseClick(event){
     // console.log(event);
-    console.log(this);
+    console.log(this.getAttribute('data-key'));
     const audio = document.querySelector(`audio[data-key='${this.dataset.key}']`);  //use key.dataset.item to get the data-set value
     // console.log(audio);
     audio.currentTime=0;
