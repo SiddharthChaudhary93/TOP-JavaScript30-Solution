@@ -30,10 +30,18 @@ key.forEach( (key) => {
 
 window.addEventListener('keydown', addAudio);
 
-const mouseCLick = document.querySelectorAll('.key');
+//mouse click event
+function mouseClick(event){
+    // console.log(event);
+    // console.log(key.dataset.key);
+    const audio = document.querySelector(`audio[data-key='${this.dataset.key}']`);  //use key.dataset.item to get the data-set value
+    // console.log(audio);
+    audio.currentTime=0;
+    audio.play();
+    this.classList.add('playing')
+}
 
-mouseCLick.forEach(key =>{
-    key.addEventListener('click', function(event){
-        console.log(event);
-    })
+key.forEach(key => {
+    key.addEventListener('click',mouseClick)
 })
+
