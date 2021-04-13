@@ -13,20 +13,27 @@ const addAudio = (event) =>{
     
 }
 
-const removeEffect = (event)=>{
+function removeEffect(event) {
     if(event.propertyName != 'transform') return;
 
     // console.log(event.propertyName);
+    // console.log(this)
      this.classList.remove('playing');
 }
 
-const keys = document.querySelectorAll('.key');
+const key = document.querySelectorAll('.key');
 
-keys.forEach( (key) => {
-    key.addEventListener('transitionend',function(event){
-        if(event.propertyName != 'transform') return;
-        key.classList.remove('playing');
-    });
+key.forEach( (key) => {
+    key.addEventListener('transitionend',removeEffect)
+    
 })
 
 window.addEventListener('keydown', addAudio);
+
+const mouseCLick = document.querySelectorAll('.key');
+
+mouseCLick.forEach(key =>{
+    key.addEventListener('click', function(event){
+        console.log(event);
+    })
+})
