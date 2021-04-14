@@ -1,7 +1,7 @@
 :root{
-    --base:#ffc600;
-    --spacing:10px;
-    --blur:10px;
+   --base : #FFC660;
+   --spacing : 10px;
+   --blur : 10px;
 }
 
 body,html{
@@ -38,32 +38,28 @@ img{
     color: var(--base);
 }
 
-.slider {
+.slider{
     -webkit-appearance: none;
     appearance: none;
-    height: 1px;
     background: var(--base);
-    outline: none;
-       
-  }
-  
- .slider::-webkit-slider-thumb {
+    height: 1px;
+
+}
+
+.slider::-webkit-slider-thumb{
     -webkit-appearance: none;
-    appearance: none;
-    width: 15px;
+    appearance: none; 
+    width:15px;
     height: 15px;
-    border-radius: 2px;
-    background: white;
-    cursor: pointer;
-  }
+    background:white;
+    border-radius: 3px;
+}
 
-  .slider::-moz-range-thumb{
-    width: 15px;
+.slider::-moz-range-thumb{
+    width:15px;
     height: 15px;
-    border-radius: 2px;
-    background: white;
-    cursor: pointer;
-  }
+    background:white;
+    border-radius: 3px;
+}
 
- 
  
