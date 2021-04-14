@@ -1,5 +1,6 @@
 html{
     background: url('https://i.picsum.photos/id/881/1500/1000.jpg?blur=5&hmac=wSpZ-UlEtKsvnxXigvyNIbudlXANuQMJpe19ZvEjebw');
+    background-size: cover;
 }
 
 body,html{
@@ -13,32 +14,34 @@ body,html{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: auto;
-    width:50%;
-    height: 100vh;
-   
-   
+    height: 90vh;
+    
+    margin:auto;
 }
 
 .clock-face{
+    width:10rem;
+    height: 10rem;
     border:20px solid white;
-    height:10rem;
-    width: 10rem;
     border-radius: 50%;
-    position: relative;
-    
 }
 
 .hand{
-    width:50%;
-    height:6px;
-    border: 1px solid white;
+    width:5rem;
+    /* border:3px solid #5dfefe; */
+    height:5px;
+    color:white;
     background: white;
-    position:  absolute;
-    top:50%;
+    position: absolute;
+    top:45%;
+    
     transform-origin: 100%;
     transform:rotate(90deg);
-    transition : all 0.5s;
     transition-timing-function: cubic-bezier(1, 0, 0, 1);
-    
+    transition:all 0.5s;
+}
+
+footer > p{
+    color:white;
+    font-size: 0.5rem;
 }
