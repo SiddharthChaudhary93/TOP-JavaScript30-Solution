@@ -34,10 +34,10 @@ body,html{
     background: white;
     position: absolute;
     top:45%;
-    
+   
     transform-origin: 100%;
     transform:rotate(90deg);
-    transition-timing-function: cubic-bezier(1, 0, 0, 1);
+    transition-timing-function: cubic-bezier(0, 2.2, 0.58, 1)ho;
     transition:all 0.5s;
 }
 
