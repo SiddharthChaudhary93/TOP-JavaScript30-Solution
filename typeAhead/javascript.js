@@ -4,41 +4,46 @@ let cities = [];
 
 fetch(endpoint)
     .then(blob => blob.json())
-    .then(data => cities.push(...data))
+    .then(data => cities.push(...data));
+//or we can use cities = data
+// console.log(cities);
 
-
-function findMatches(wordToMatch, cities){
-    return cities.filter(place => {
-        const regex = new RegExp(wordToMatch,'gi')
-        return place.city.match(regex) || place.state.match(regex);
+function getDataFromCities(whatToSearch,cities){
+    
+    return cities.filter(placeArr => {
+        const regex = new RegExp(whatToSearch,'gi');
+        return  placeArr.city.match(regex) || placeArr.state.match(regex);
     })
 }
 
-function displayMatches(){
+function getAllData() {
     console.log(this.value);
-    const matchArray = findMatches(this.value,cities);
-    console.table(matchArray);
-    const html = matchArray.map( place => {
-        const regex = new RegExp(this.value,'gi');
-        const cityName = place.city.replace(regex, `<span class='hl'>${this.value}</span>`);
-        const stateName = place.state.replace(regex, `<span class='hl'>${this.value}</span>`);
+    const matchArray = getDataFromCities(this.value,cities);
+    console.log(matchArray);
 
-        return `
+    const html = matchArray.map(place => {
+        const regex = new RegExp(this.value,'gi');
+        const cityName = place.city.replace(regex,`<span class='hl'>${this.value}</span>`);
+        const stateName = place.state.replace(regex,`<span class='hl'>${this.value}</span>`)
+         return `
             <li>
-                <span class='name'>${cityName}, ${stateName}</span>
-                <span class='population'>${numberWithCommas(place.population)}</span> 
+                <span>${cityName},${stateName}</span>
+                <span class='population'>${numberWithCommas(place.population)}</span>
             </li>
-        `;
+         `;
     }).join('');
+
+    
     suggestions.innerHTML = html;
+    
 }
 
 function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
 
-const searchInput =document.querySelector('.input-text');
-const suggestions = document.querySelector('.suggestions')
+const input = document.querySelector('.input-text');
+const suggestions = document.querySelector('.suggestions');
 
-searchInput.addEventListener('change',displayMatches);
-searchInput.addEventListener('keyup',displayMatches);
+input.addEventListener('click',getAllData);
+input.addEventListener('keyup',getAllData);
