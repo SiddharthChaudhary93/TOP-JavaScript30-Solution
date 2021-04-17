@@ -11,6 +11,8 @@ function selectAll(event){
             
             console.log(checkbox);
             if(checkbox === lastSelected || checkbox === this){
+                //agar last selected and isbaaar jo select kiya uske beech me hai to
+                //element will be beech me i.e. in Between
                 inBetween = !inBetween;
                 console.log(`we are here`);
             }
